@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Auth Forms -->
+        <div id="auth-container" class="auth-container">
+            <div class="tabs">
+                <button id="login-tab" class="tab active">Login</button>
+                <button id="register-tab" class="tab">Register</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p id="login-message" class="message"></p>
+            </form>
+            
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form" style="display: none;">
+                <h2>Register</h2>
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p id="register-message" class="message"></p>
+            </form>
+        </div>
+        
+        <!-- Chat Application -->
+        <div id="chat-container" class="chat-container" style="display: none;">
+            <div class="sidebar">
+                <div class="user-info">
+                    <span id="current-user"></span>
+                    <button id="logout-btn" class="btn btn-small">Logout</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search users...">
+                    <button id="search-btn" class="btn btn-small">Search</button>
+                </div>
+                <div id="search-results" class="search-results"></div>
+                <div class="chats-list">
+                    <h3>Conversations</h3>
+                    <ul id="conversations-list"></ul>
+                </div>
+            </div>
+            
+            <div class="chat-area">
+                <div id="chat-header" class="chat-header">
+                    <h3>Select a conversation</h3>
+                </div>
+                <div id="messages-container" class="messages-container"></div>
+                <div id="message-form-container" class="message-form-container" style="display: none;">
+                    <form id="message-form" class="message-form">
+                        <input type="text" id="message-input" placeholder="Type your message..." required>
+                        <button type="submit" class="btn btn-send">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
